@@ -1,0 +1,114 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fruit Manager</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f2fcff;
+        text-align: center;
+      }
+      input {
+        padding: 8px;
+        width: 200px;
+        font-size: 16px;
+      }
+      button {
+        margin: 5px;
+        padding: 8px 16px;
+        font-size: 14px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+        background-color: #00bcd4;
+        color: white;
+      }
+      button:hover {
+        background-color: #008c9e;
+      }
+      #output,
+      #deletedOutput {
+        margin-top: 20px;
+        font-size: 16px;
+      }
+      b {
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Fruit Manager</h2>
+    <input id="fruitInput" type="text" placeholder="Enter fruit name" />
+    <br />
+    <button onclick="addFruit()">POST</button>
+    <button onclick="getFruits()">GET</button>
+    <button onclick="updateFruit()">UPDATE</button>
+    <button onclick="deleteFruit()">DELETE</button>
+
+    <div id="output"></div>
+    <div id="deletedOutput" style="color: red"></div>
+
+    <script>
+      let fruits = [];
+      let deletedFruits = [];
+
+      function addFruit() {
+        const input = document.getElementById("fruitInput").value.trim();
+        if (input && !fruits.includes(input)) {
+          fruits.push(input);
+          document.getElementById("fruitInput").value = "";
+        }
+      }
+
+      function getFruits() {
+        let output = document.getElementById("output");
+
+        if (fruits.length > 0) {
+          output.innerHTML = "Fruits: " + fruits.join(", ");
+        } else {
+          output.innerHTML = "No fruits added.";
+        }
+      }
+
+      function updateFruit() {
+        const input = document.getElementById("fruitInput").value.trim();
+        const index = fruits.indexOf(input);
+        if (index !== -1) {
+          const newName = prompt("Enter new name:", fruits[index]);
+          if (newName) {
+            fruits[index] = newName.trim();
+          }
+          document.getElementById("fruitInput").value = "";
+        }
+      }
+
+      function deleteFruit() {
+        const input = document.getElementById("fruitInput").value.trim();
+        const index = fruits.indexOf(input);
+        if (index !== -1) {
+          const deleted = fruits.splice(index, 1);
+
+          document.getElementById("fruitInput").value = "";
+          console.log(deleted);
+          getFruits();
+        }
+      }
+    </script>
+  </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+button*4.onclick
+</body>
+</html>

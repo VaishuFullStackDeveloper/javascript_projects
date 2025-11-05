@@ -1,0 +1,51 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplication Table</title>
+</head>
+<body>
+  <h3>Enter a number to see its table:</h3>
+  <input type="number" id="numInput" />
+  <button onclick="showTable()">Show Table</button>
+  <div id="output"></div>
+
+  <script>
+    function showTable() {
+      let num = document.getElementById("numInput").value;
+      let result = "";
+      for (let i = 1; i <= 10; i++) {
+        result += `${num} × ${i} = ${num * i}<br>`;
+      }
+      document.getElementById("output").innerHTML = result;
+    }
+  </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Enter a number to see table :</h3>
+    <input type="number" id="numInput">
+    <button onclick="showTable()"> show table </button>
+    <div id="output"></div>
+    <script>
+        function showTable(){
+            let num = document.getElementById("numInput").value;
+            let result ="";
+            // for (let i = 100; i>=1; i--){
+                for (let i = 2; i <= 50; i += 2) {
+                result += `${num} x ${i} = ${num * i}<br>`;
+            }
+            document.getElementById("output").innerHTML= result;
+
+        }
+    </script>
+    
+</body>
+</html>

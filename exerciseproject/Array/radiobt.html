@@ -1,0 +1,122 @@
+<!-- <!DOCTYPE html>
+<html>
+  <body>
+    <h1 id="question"></h1>
+
+    <label>
+      <input type="radio" name="option" id="option-1">
+      <span id="op1"></span>
+    </label><br>
+    <label>
+      <input type="radio" name="option" id="option-2">
+      <span id="op2"></span>
+    </label><br><br>
+
+    <button onclick="getValue()">Submit</button>
+    <p id="result"></p>
+
+    <script>
+      const array = [
+        { question: "2+2=?", option_one: 2, option_two: 4, ans: 4 },
+        { question: "4+4=?", option_one: 8, option_two: 16, ans: 8 }
+      ];
+      let i = 0;
+
+      function getQue() {
+        document.getElementById("question").innerHTML = array[i].question;
+        document.getElementById("op1").innerHTML = array[i].option_one;
+        document.getElementById("op2").innerHTML = array[i].option_two;
+      }
+
+      function getValue() {
+        let selected = document.getElementById("option-1").checked ? array[i].option_one :
+                       document.getElementById("option-2").checked ? array[i].option_two : null;
+
+        if (selected === null) {
+          document.getElementById("result").innerHTML = "Please select an option!";
+          return;
+        }
+
+        document.getElementById("result").innerHTML = 
+          selected === array[i].ans ? " Correct!" : " Wrong!";
+
+        i++;
+        if (i < array.length) {
+          getQue();
+          document.querySelectorAll("input[name=option]").forEach(el => el.checked = false);
+        } else {
+          document.getElementById("result").innerHTML += "Quiz completed!";
+        }
+      }
+
+      getQue();
+    </script>
+  </body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <body>
+   <h1 id="question"></h1> 
+   <input type="radio" name="option" id="option-1" value="2">
+   <label for="option-1" id="op1"></label>
+   <input type="radio" name="option" id="option-2" value="4">
+   <label for="option-2" id="op2"></label>
+   <br>
+   <input type="submit" onclick="getValue()">
+   <button onclick="getQue()">getQue</button>
+
+    <script>
+      const array = [
+        { que: "2+2=?", op1: 2, op2: 4, ans: 4 },
+        { que: "4+4=?", op1: 8, op2: 16, ans: 8 },
+      ];
+      let i = 0;
+
+      function getQue(){
+        document.getElementById("question").innerHTML = array[i].que;
+        document.getElementById("op1").innerHTML = array[i].op1;
+        document.getElementById("op2").innerHTML = array[i].op2;
+       }
+
+      function getValue(){
+        let op1 = document.getElementById("option-1");
+        let op2 = document.getElementById("option-2");
+        let ans = array[i].ans;
+
+        if (op1.checked) {
+          let selectOption = Number(op1.value);
+          if (selectOption == ans) {
+            alert("right");
+          } else {
+            alert("wrong");
+          }
+        } 
+        else if (op2.checked) {
+          let selectOption = Number(op2.value);
+          if (selectOption == ans) {
+            alert("right");
+          } else {
+            alert("wrong");
+          }
+        } 
+        else {
+          alert("select option");
+          return; 
+        }
+
+        i++;
+        if (i < array.length) {
+          getQue();
+        } else {
+          alert("Quiz completed!");
+        }
+      } 
+      getQue();
+    </script>
+  </body>
+</html>

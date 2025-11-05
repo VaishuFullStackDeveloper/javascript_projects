@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vaishali Dewase – Full Stack Developer Resume</title>
+    <style>
+      :root {
+        --bg: #f3f4f6;
+        --paper: #ffffff;
+        --text: #111827;
+        --muted: #6b7280;
+        --line: #e5e7eb;
+        --accent: #2563eb;
+        --chip: #eef2ff;
+        --accent-dark: #1e40af;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+        line-height: 1.5;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 20px auto;
+        background: var(--paper);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        padding: 18mm;
+        border-radius: 14px;
+      }
+
+      @media (max-width: 980px) {
+        .page {
+          width: auto;
+          min-height: auto;
+          margin: 0;
+          padding: 18px;
+          border-radius: 0;
+          box-shadow: none;
+        }
+      }
+
+      @page {
+        size: A4;
+        margin: 8mm;
+      }
+      @media print {
+        body {
+          background: #fff;
+        }
+        .page {
+          margin: 0;
+          box-shadow: none;
+          border-radius: 0;
+        }
+        .print-hide {
+          display: none !important;
+        }
+      }
+
+      /* Header */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid ;
+        padding-bottom: 12px;
+        margin-bottom: 18px;
+      }
+      .name {
+        font-size: 32px;
+        font-weight: 800;
+      }
+      .role {
+        color: var(--accent);
+        font-weight: 600;
+        margin-top: 2px;
+        font-size: 16px;
+      }
+      .avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 2px solid var;
+        object-fit: cover;
+      }
+
+      /* Contact */
+      .contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin: 12px 0;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .contact a {
+        color: var(--text);
+        text-decoration: none;
+      }
+      .contact a:hover {
+        color: var(--accent);
+      }
+
+      /* Grid body */
+      .grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 28px;
+      }
+      @media (max-width: 980px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .section h2 {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 10px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 4px;
+        text-transform: uppercase;
+      }
+
+      .summary {
+        margin-bottom: 12px;
+        font-size: 14px;
+      }
+
+      /* Chips */
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .chip {
+        background: var(--chip);
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        border: 1px solid #dbeafe;
+      }
+
+      /* Items */
+      .items {
+        display: grid;
+        gap: 12px;
+      }
+      .item {
+        background: #f9fafb;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+      }
+      .item .title {
+        font-weight: 700;
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+      .item .meta {
+        color: var(--muted);
+        font-size: 12px;
+        margin-bottom: 6px;
+      }
+      .bullets {
+        margin: 0;
+        padding-left: 18px;
+        font-size: 13px;
+      }
+      .bullets li {
+        margin: 3px 0;
+      }
+
+      /* Education */
+      .edu {
+        display: grid;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      .edu .school {
+        font-weight: 700;
+      }
+
+      /* Projects */
+      .projects .project {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 10px;
+        background: #f9fafb;
+      }
+      .projects .project .title {
+        font-weight: 700;
+        font-size: 14px;
+      }
+      .projects .project .desc {
+        font-size: 13px;
+        margin-top: 4px;
+        color: var(--muted);
+      }
+
+      .footnote {
+        margin-top: 20px;
+        font-size: 11px;
+        color: var(--muted);
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div>
+          <div class="name">Vaishali Dewase</div>
+          <div class="role">Full Stack Developer</div>
+        </div>
+        <img class="avatar" src="yourphoto.jpg" alt="Vaishali Dewase" />
+      </header>
+
+      <div class="contact">
+        <span
+          >Email:
+          <a href="mailto:vaishalidewase9@gmail.com"
+            >vaishalidewase9@gmail.com</a
+          ></span
+        >
+        <span>Phone: <a href="tel:+91XXXXXXXXXX">+91-XXXXXXXXXX</a></span>
+        <span
+          >GitHub:
+          <a href="https://github.com/yourusername"
+            >github.com/yourusername</a
+          ></span
+        >
+        <span
+          >LinkedIn:
+          <a href="https://linkedin.com/in/yourprofile"
+            >linkedin.com/in/yourprofile</a
+          ></span
+        >
+        <span>Location: Katol, Maharashtra | Tah:Narkhed | Dist:Nagpur</span>
+      </div>
+
+      <main class="grid">
+        <section class="section">
+          <h2>Summary</h2>
+          <p class="summary">
+            Aspiring Full Stack Developer with expertise in JavaScript, React,
+            Node.js, and SQL. Passionate about building scalable and
+            optimized web applications. Skilled in clean UI, responsive design,
+            and agile collaboration. Seeking to contribute to innovative
+            software teams.
+          </p>
+
+          <h2>Skills</h2>
+          <div class="chips">
+            <span class="chip">HTML5</span>
+            <span class="chip">CSS3</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">React</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Git & GitHub</span>
+          </div>
+
+          <h2>Projects</h2>
+          <div class="projects">
+            <div class="project">
+              <div class="title">Portfolio Website</div>
+              <div class="desc">
+                Built a fully responsive personal portfolio using HTML, CSS, and
+                JavaScript with smooth animations and project showcase.
+              </div>
+            </div>
+            <div class="project">
+              <div class="title">E-commerce Web App</div>
+              <div class="desc">
+                Developed a MERN stack e-commerce application with user
+                authentication, cart functionality, and payment integration.
+              </div>
+            </div>
+            <div class="project">
+              <div class="title">Blog Platform</div>
+              <div class="desc">
+                Created a full-stack blogging platform with React frontend,
+                Node.js/Express backend, and MongoDB database, allowing users to
+                post and comment.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="section">
+          <h2>Education</h2>
+          <div class="edu">
+            <div>
+              <div class="school">BSc in Computer Science</div>
+              <div class="meta">RTMNU University • 2022–2025</div>
+            </div>
+            <div>
+              <div class="school">12th (HSC) – Maharashtra Board</div>
+              <div class="meta">2021–22</div>
+            </div>
+          </div>
+
+          <h2>Strengths</h2>
+          <ul class="bullets">
+            <li>Clean, maintainable code with reusable components.</li>
+            <li>Strong problem-solving and analytical skills.</li>
+            <li>Effective collaboration in agile teams.</li>
+            <li>Quick learner and adaptable to new technologies.</li>
+          </ul>
+
+          <h2>Tools</h2>
+          <div class="chips">
+            <span class="chip">VS Code</span>
+            <span class="chip">Postman</span>
+            <span class="chip">Figma</span>
+          
+          </div>
+
+          <h2>Languages</h2>
+          <div class="chips">
+            <span class="chip">English</span>
+            <span class="chip">Hindi</span>
+            <span class="chip">Marathi</span>
+          </div>
+        </aside>
+      </main>
+ </div>
+  </body>
+</html>

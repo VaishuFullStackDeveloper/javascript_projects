@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Chain Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #4A90E2;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .title {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .screens {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .screen {
+            background: white;
+            border-radius: 15px;
+            padding: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .screen-top {
+            background: #f5f5f5;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .screen-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .screen-number {
+            background: #4A90E2;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .screen-content {
+            padding: 20px;
+            height: calc(100% - 60px);
+            overflow-y: auto;
+        }
+
+        /* Screen 1: Start Game */
+        .start-word {
+            background: #4A90E2;
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .start-word h2 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .start-word p {
+            opacity: 0.8;
+        }
+
+        .rules {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .rule {
+            margin: 10px 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .start-btn {
+            background: #28A745;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .start-btn:hover {
+            background: #218838;
+        }
+
+        /* Screen 2: Playing Game */
+        .timer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .timer-circle {
+            width: 60px;
+            height: 60px;
+            background: #FF4444;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto;
+        }
+
+        .chain-area {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            min-height: 80px;
+        }
+
+        .chain {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .word {
+            background: #4A90E2;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+
+        .arrow {
+            color: #999;
+            font-weight: bold;
+        }
+
+        .input-area {
+            text-align: center;
+        }
+
+        .word-input {
+            font-size: 1.2rem;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .add-btn {
+            background: #4A90E2;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .score {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #28A745;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* Screen 3: Results */
+        .final-score {
+            background: #28A745;
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .final-score h2 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .comparison {
+            margin: 15px 0;
+        }
+
+        .comparison h4 {
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .chain-result {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .result-chain {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .result-word {
+            background: #4A90E2;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        /* Screen 4: Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-box {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .history {
+            background: #f8f8f8;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .history-title {
+            padding: 15px;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .history-item {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .game-score {
+            background: #4A90E2;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+        }
+
+        .new-game-btn {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: #4A90E2;
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .screens {
+                grid-template-columns: 1fr;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">⚡ Word Chain Game</h1>
+        
+        <div class="screens">
+            <!-- Screen 1: Start Game -->
+            <div class="screen">
+                <div class="screen-top">
+                    <div class="screen-title">Start New Game</div>
+                    <div class="screen-number">1</div>
+                </div>
+                <div class="screen-content">
+                    <div class="start-word">
+                        <h2>OCEAN</h2>
+                        <p>Your starting word</p>
+                    </div>
+                    
+                    <div class="rules">
+                        <div class="rule">• Connect words to make a chain</div>
+                        <div class="rule">• You have 60 seconds</div>
+                        <div class="rule">• Longer chains = better score</div>
+                        <div class="rule">• Be creative with connections!</div>
+                    </div>
+                    
+                    <button class="start-btn">Start Game</button>
+                </div>
+            </div>
+
+            <!-- Screen 2: Playing Game -->
+            <div class="screen" style="position: relative;">
+                <div class="screen-top">
+                    <div class="screen-title">Playing</div>
+                    <div class="screen-number">2</div>
+                </div>
+                <div class="screen-content">
+                    <div class="score">Score: 35</div>
+                    
+                    <div class="timer">
+                        <div class="timer-circle">45</div>
+                        <p style="margin-top: 10px;">seconds left</p>
+                    </div>
+                    
+                    <div class="chain-area">
+                        <h4 style="margin-bottom: 10px;">Your Chain:</h4>
+                        <div class="chain">
+                            <div class="word">OCEAN</div>
+                            <div class="arrow">→</div>
+                            <div class="word">NIGHT</div>
+                            <div class="arrow">→</div>
+                            <div class="word">TIME</div>
+                            <div class="arrow">→</div>
+                            <div class="word">?</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-area">
+                        <input type="text" class="word-input" placeholder="Next word..." value="ENERGY">
+                        <br>
+                        <button class="add-btn">Add Word</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 3: Results -->
+            <div class="screen">
+                <div class="screen-top">
+                    <div class="screen-title">Results</div>
+                    <div class="screen-number">3</div>
+                </div>
+                <div class="screen-content">
+                    <div class="final-score">
+                        <h2>65</h2>
+                        <p>Great job!</p>
+                    </div>
+                    
+                    <div class="comparison">
+                        <h4>YOUR CHAIN (6 words):</h4>
+                        <div class="chain-result">
+                            <div class="result-chain">
+                                <div class="result-word">OCEAN</div>
+                                <div class="arrow">→</div>
+                                <div class="result-word">NIGHT</div>
+                                <div class="arrow">→</div>
+                                <div class="result-word">TIME</div>
+                                <div class="arrow">→</div>
+                                <div class="result-word">ENERGY</div>
+                                <div class="arrow">→</div>
+                                <div class="result-word">YELLOW</div>
+                                <div class="arrow">→</div>
+                                <div class="result-word">WOODS</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison">
+                        <h4>OTHER PLAYERS:</h4>
+                        <div class="chain-result">
+                            <div class="result-chain">
+                                <div class="result-word">OCEAN</div>
+                                <div class="arrow">→</div>
+                                <div class="result-word">WATER</div>
+                                <div class="arrow">→</div>
+                                <div class="result-word">RIVER</div>
+                                <div class="arrow">→</div>
+                                <div class="result-word">RAIN</div>
+                            </div>
+                            <small style="color: #666;">Score: 32</small>
+                        </div>
+                    </div>
+                </div>
+                <button class="new-game-btn">🔄</button>
+            </div>
+
+            <!-- Screen 4: Stats -->
+            <div class="screen">
+                <div class="screen-top">
+                    <div class="screen-title">Your Stats</div>
+                    <div class="screen-number">4</div>
+                </div>
+                <div class="screen-content">
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">Games</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">58</div>
+                            <div class="stat-label">Best Score</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Longest Chain</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">42</div>
+                            <div class="stat-label">Avg Score</div>
+                        </div>
+                    </div>
+                    
+                    <div class="history">
+                        <div class="history-title">Recent Games</div>
+                        <div class="history-item">
+                            <div>
+                                <div style="font-weight: bold;">Ocean → ... → Woods</div>
+                                <small style="color: #666;">2 min ago</small>
+                            </div>
+                            <div class="game-score">65</div>
+                        </div>
+                        <div class="history-item">
+                            <div>
+                                <div style="font-weight: bold;">Fire → ... → Dreams</div>
+                                <small style="color: #666;">1 hour ago</small>
+                            </div>
+                            <div class="game-score">38</div>
+                        </div>
+                        <div class="history-item">
+                            <div>
+                                <div style="font-weight: bold;">Sky → ... → Peace</div>
+                                <small style="color: #666;">Yesterday</small>
+                            </div>
+                            <div class="game-score">52</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="new-game-btn">+</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple button interactions
+        document.querySelector('.start-btn').addEventListener('click', function() {
+            this.textContent = 'Starting...';
+            this.style.background = '#666';
+            setTimeout(() => {
+                this.textContent = 'Good Luck!';
+                this.style.background = '#28A745';
+            }, 1000);
+        });
+
+        document.querySelector('.add-btn').addEventListener('click', function() {
+            this.textContent = 'Added!';
+            setTimeout(() => {
+                this.textContent = 'Add Word';
+            }, 500);
+        });
+
+        // New game buttons
+        document.querySelectorAll('.new-game-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>

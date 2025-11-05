@@ -1,0 +1,74 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Form</title>
+  <style>
+    .main-container {
+      width: 300px;
+      margin: 100px auto;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      text-align: center;
+      font-family: Arial;
+    }
+
+    input, button {
+      margin: 10px 0;
+      padding: 8px;
+      width: 100%;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-container">
+    <h1>Login to Your Account</h1>
+    <p>Username</p>
+    <input type="text" id="username" placeholder="Enter your Username">
+    <p>Password</p>
+    <input type="password" id="password" placeholder="Enter your Password">
+    <button onclick="checkLogin()">Login</button>
+  </div>
+
+  <script>
+    // get user input username and password
+    function checkLogin() {
+      let user = document.getElementById("username").value;
+      let pass = document.getElementById("password").value;
+      let displayMessag =" ";
+
+      // Example using nested if
+      if (user === "admin") {
+        if (pass === "12345") {
+          alert("Login Successful");
+          displayMessag=("Login Successful")
+        } else {
+          alert(" Incorrect Password");
+          displayMessag=("Incorrect Password")
+        }
+      } else {
+        alert(" Invalid Username");
+        displayMessag=(" Invalid Username")
+      }
+    }
+  </script>
+
+</body>
+</html>

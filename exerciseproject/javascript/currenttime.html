@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+
+      <script>
+        function Time() {
+          let date = new Date();
+      
+          let h = date.getHours();
+          let m = date.getMinutes();
+          let s = date.getSeconds();
+          let ms = date.getMilliseconds();
+      
+          // Show like h:m:s:ms
+          document.getElementById("result").innerHTML =
+            h + ":" + m + ":" + s + ":" + ms;
+        }
+      
+        Time();
+        setInterval(Time, 1000);
+        </script>
+</body>
+</html>

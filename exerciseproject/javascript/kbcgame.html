@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KBC Quiz Game</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: url('https://i.cdn.newsbytesapp.com/images/l158_8201601297368.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    .game-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .screen {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    h1, h2 {
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #cea308;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .btn:hover {
+      background-color: #e6b800;
+    }
+
+    #answers-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .answer-btn {
+      background-color: #006400;
+      color: #fff;
+      border: none;
+      padding: 15px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 50px;
+    }
+
+    .answer-btn:hover {
+      background-color: #008000;
+    }
+
+    #progress-bar {
+      width: 100%;
+      height: 10px;
+      background-color: #ddd;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    #progress {
+      width: 0;
+      height: 100%;
+      background-color: #cea308;
+      border-radius: 5px;
+      transition: width 0.5s ease-in-out;
+    }
+
+    @media (max-width: 768px) {
+      #answers-container {
+        grid-template-columns: 1fr;
+      }
+
+      .answer-btn {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="game-container">
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen">
+      <h1>Kaun Banega Crorepati 🪙</h1>
+      <button id="start-button" class="btn">Start Quiz</button>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen hidden">
+      <h2 id="question-text">Question will appear here</h2>
+      <div id="answers-container">
+        <button class="answer-btn" data-index="0">Answer 1</button>
+        <button class="answer-btn" data-index="1">Answer 2</button>
+        <button class="answer-btn" data-index="2">Answer 3</button>
+        <button class="answer-btn" data-index="3">Answer 4</button>
+      </div>
+      <div id="progress-bar"><div id="progress"></div></div>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="result-screen" class="screen hidden">
+      <h2 id="result-text">You finished the quiz!</h2>
+      <p id="score-text">Your score: 0</p>
+      <button id="play-again-button" class="btn">Play Again</button>
+    </div>
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "1. Which team won the T20 World Cup 2021?",
+        answers: ["Australia", "India", "England", "South Africa"],
+        correct: 0
+      },
+      {
+        question: "2. Which is the first Indian cricket tournament?",
+        answers: ["Bombay Series", "Bombay Triangular", "Pepsi Cup", "None"],
+        correct: 1
+      },
+      {
+        question: "3. First cricket club in India?",
+        answers: ["East Indian Club", "Bombay Club", "Oriental Club", "Maharashtra Club"],
+        correct: 2
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    const startScreen = document.getElementById('start-screen');
+    const gameScreen = document.getElementById('game-screen');
+    const resultScreen = document.getElementById('result-screen');
+    const questionText = document.getElementById('question-text');
+    const answerButtons = document.querySelectorAll('.answer-btn');
+    const progressBar = document.getElementById('progress');
+    const resultText = document.getElementById('result-text');
+    const scoreText = document.getElementById('score-text');
+
+    document.getElementById('start-button').addEventListener('click', startGame);
+    document.getElementById('play-again-button').addEventListener('click', startGame);
+
+    answerButtons.forEach(btn => {
+      btn.addEventListener('click', () => selectAnswer(parseInt(btn.dataset.index)));
+    });
+
+    function startGame() {
+      currentQuestion = 0;
+      score = 0;
+      showScreen(gameScreen);
+      loadQuestion();
+    }
+
+    function loadQuestion() {
+      const q = quizData[currentQuestion];
+      questionText.innerText = q.question;
+      q.answers.forEach((ans, i) => {
+        answerButtons[i].innerText = ans;
+      });
+      updateProgressBar();
+    }
+
+    function selectAnswer(index) {
+      if (index === quizData[currentQuestion].correct) {
+        score++;
+        questionText.innerText = "✅ Correct!";
+      } else {
+        questionText.innerText = "❌ Wrong!";
+      }
+
+      currentQuestion++;
+      if (currentQuestion < quizData.length) {
+        setTimeout(() => {
+          resetColors();
+          loadQuestion();
+        }, 1000);
+      } else {
+        setTimeout(endGame, 1000);
+      }
+    }
+
+    function updateProgressBar() {
+      const percent = (currentQuestion / quizData.length) * 100;
+      progressBar.style.width = percent + '%';
+    }
+
+    function resetColors() {
+      gameScreen.style.backgroundColor = "rgba(0,0,0,0.7)";
+    }
+
+    function endGame() {
+      showScreen(resultScreen);
+      resultText.innerText = "Quiz Completed!";
+      scoreText.innerText = `Your score: ${score} out of ${quizData.length}`;
+    }
+
+    function showScreen(screen) {
+      startScreen.classList.add('hidden');
+      gameScreen.classList.add('hidden');
+      resultScreen.classList.add('hidden');
+      screen.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

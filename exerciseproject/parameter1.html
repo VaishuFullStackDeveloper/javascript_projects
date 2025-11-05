@@ -1,0 +1,88 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Calculator UI</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: #e0f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+    height:60% ;
+      width: 40%;
+      background-color: lightblue;
+      border-radius: 20px;
+      padding: 20px;
+       display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .display {
+      height: 120px;
+      background-color: lightsteelblue;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .butn {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .butn button {
+     
+      padding: 15px;
+      font-size: 18px;
+      border: black 1px;
+      background-color: darkgoldenrod;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      
+    }
+
+    
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="display">
+            <p id="result"></p>
+        </div>
+        <div class="butn">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+
+        </div>
+
+    </div>
+    <script>
+    
+    </script>
+    
+</body>
+</html>

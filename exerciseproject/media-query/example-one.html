@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Environmental Layout</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 100vw;
+      font-family: Arial, sans-serif;
+    }
+
+    .main-container {
+      width: 100%;
+      min-height: 100vh;
+      background-color: lightblue;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .container-one {
+      width: 100%;
+      height: 400px;
+      background-image: url(https://img.freepik.com/premium-vector/ai-artificial-intelligence-shape-sphere-grid-wave-wireframe-hand-ai-virtual-technology-machine-learning-concept-big-data-innovation-technology-neural-networks-vector-illustration_127544-4022.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      border-radius: 10px;
+      
+    }
+
+    .container-two {
+      width: 100%;
+      height: 700px;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .content-one {
+      width: 70%;
+      height: 100%;
+      background-color: lightseagreen;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .content-two {
+      width: 30%;
+      height: 100%;
+      background-color: rgb(139, 117, 159);
+      border-radius: 10px;
+    }
+
+    .one {
+      width: 46%;
+      height: 45%;
+      background-color: lightgreen;
+      border-radius: 10px;
+    }
+
+    .three {
+      width: 100%;
+      height: 45%;
+      background-color: coral;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Main Container -->
+  <div class="main-container">
+    <!-- Container One-->
+    <div class="container-one"></div>
+
+    <!-- Container Two -->
+    <div class="container-two">
+      <!-- Left Content -->
+      <div class="content-one">
+        <div class="one"></div>
+        <div class="one"></div>
+        <div class="three"></div>
+      </div>
+      <!-- Right Sidebar -->
+      <div class="content-two"></div>
+    </div>
+  </div>
+</body>
+</html>

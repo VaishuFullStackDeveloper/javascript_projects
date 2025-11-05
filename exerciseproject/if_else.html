@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<pre>
+    1. Deposite
+    2. Withdraw
+    3. Balance
+    4. Exit
+</pre>
+    <button onclick="bankingSystem()">Start</button>
+    <script>
+        let total = 0;
+        function bankingSystem(){
+            while (true){
+                let userChoice = prompt("Enter your choice");
+                if(userChoice == 1){
+                    let depositeAmount;
+                    alert("Amount deposite successfully \n Your balnce is" + total);
+ 
+                }
+                else if (userChoice == 2){
+ 
+                    let withdrawAmount = Number(prompt("Enter amount for withdraw"));
+                    total = total - withdrawAmount;
+                    alert("Amount withdraw successfully \n Your balance is" + total);
+ 
+                }
+                else if(userChoice == 3){
+                    alert("Your balance is" + total);
+                }
+                 else if(userChoice == 4){
+                    break;
+                 }
+                 else{
+                    alert("Invalid choice");
+                 }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Switch Statement Example</title>
+  </head>
+  <body>
+    <button onclick="switchOneExample()">Switch One (Number)</button>
+    <button onclick="switchTwoExample()">Switch Two (Fruit)</button>
+
+    <script>
+      function switchOneExample() {
+        let number = Number(prompt("Enter a number:"));
+
+        switch (number) {
+          case 0:
+            alert("Off");
+            break;
+          case 1:
+            alert("On");
+            break;
+          default:
+            alert("Invalid number.");
+        }
+      }
+
+      function switchTwoExample() {
+        let fruit = prompt(
+          "Enter a fruit name (e.g., apple, banana, mango):"
+        );
+
+        switch (fruit) {
+          case "apple":
+            display = "Apples is red";
+            alert(display);
+            break;
+          case "banana":
+            display = "banana is yellow";
+            alert(display);
+            break;
+          case "mango":
+            display = "mango is orange";
+            alert(display);
+          default:
+            display = "Invalid number";
+            alert(display);
+        }
+      }
+    </script>
+  </body>
+</html>

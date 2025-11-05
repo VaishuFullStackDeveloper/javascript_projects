@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Age Check</title>
+</head>
+<body>
+
+  <script>
+    let number = Number(prompt("Enter your age:"));
+    let result = "";
+
+    if (number >= 18) {
+      result = "You are eligible";
+    } else if (number > 0 && number < 18) {
+      result = "You are not eligible";
+    } else {
+      result = "Invalid age entered";
+    }
+
+    alert(result);
+    console.log(result);
+  </script>
+</body>
+</html>

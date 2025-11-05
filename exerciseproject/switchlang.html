@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificate Dictionary</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  h2 { margin-bottom: 10px; }
+  p { margin: 5px 0; }
+  select {
+    padding: 8px;
+    font-size: 1rem;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+  .certificate {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Language Dropdown -->
+<select id="langSelect" onchange="setLanguage(this.value)">
+  <option value="0">English</option>
+  <option value="1">Hindi</option>
+  <option value="2">Marathi</option>
+</select>
+
+<!-- Birth Certificate -->
+<div class="certificate">
+  <h2 id="birth-title"></h2>
+  <p id="birth-desc"></p>
+  <p><strong>Documents:</strong> <span id="birth-docs"></span></p>
+  <p><strong>Process:</strong> <span id="birth-process"></span></p>
+  <p><strong>Fees:</strong> <span id="birth-fees"></span></p>
+</div>
+
+<!-- Death Certificate -->
+<div class="certificate">
+  <h2 id="death-title"></h2>
+  <p id="death-desc"></p>
+  <p><strong>Documents:</strong> <span id="death-docs"></span></p>
+  <p><strong>Process:</strong> <span id="death-process"></span></p>
+  <p><strong>Fees:</strong> <span id="death-fees"></span></p>
+</div>
+
+<script>
+  const certificates = [
+    // English
+    {
+      birth: {
+        title:"Birth Certificate",
+        desc:"Used for official birth registration. Required for school, ID, and government schemes.",
+        docs:["Hospital birth certificate", "Parents' Aadhar cards", "Address proof", "Filled application form"],
+        process:"Submit the form and documents at the Gram Panchayat. Certificate issued within 7 days.",
+        fees:"Free within 21 days, ₹50 after 21 days."
+      },
+      death: {
+        title:"Death Certificate",
+        desc:"Proof of a person's death. Used for legal and financial matters like pension, insurance.",
+        docs:["Medical certificate of death", "Aadhar card of deceased", "Applicant ID proof", "Filled application form"],
+        process:"Submit documents to Panchayat. Certificate issued within 5–10 days.",
+        fees:"₹50"
+      }
+    },
+    // Hindi
+    {
+      birth: {
+        title:"जन्म प्रमाण पत्र",
+        desc:"आधिकारिक जन्म पंजीकरण के लिए उपयोग किया जाता है। स्कूल, आईडी और सरकारी योजनाओं के लिए आवश्यक।",
+        docs:["अस्पताल का जन्म प्रमाण पत्र", "माता-पिता के आधार कार्ड", "पते का प्रमाण", "भरा हुआ आवेदन पत्र"],
+        process:"फॉर्म और दस्तावेज ग्राम पंचायत में जमा करें। प्रमाण पत्र 7 दिनों के भीतर जारी किया जाएगा।",
+        fees:"21 दिनों के भीतर निःशुल्क, 21 दिनों के बाद ₹50।"
+      },
+      death: {
+        title:"मृत्यु प्रमाण पत्र",
+        desc:"किसी व्यक्ति की मृत्यु का प्रमाण। पेंशन, बीमा जैसे कानूनी और वित्तीय मामलों में उपयोग।",
+        docs:["मृत्यु का चिकित्सीय प्रमाण पत्र", "मृत व्यक्ति का आधार कार्ड", "आवेदक का पहचान पत्र", "भरा हुआ आवेदन पत्र"],
+        process:"दस्तावेज पंचायत में जमा करें। प्रमाण पत्र 5–10 दिनों के भीतर जारी किया जाएगा।",
+        fees:"₹50"
+      }
+    },
+    // Marathi
+    {
+      birth: {
+        title:"जन्म प्रमाणपत्र",
+        desc:"अधिकृत जन्म नोंदणीसाठी वापरले जाते. शाळा, ओळखपत्र आणि शासकीय योजनांसाठी आवश्यक.",
+        docs:["रुग्णालयाचे जन्म प्रमाणपत्र", "पालकांचे आधार कार्ड", "पत्त्याचा पुरावा", "भरलेला अर्ज"],
+        process:"फॉर्म आणि कागदपत्रे ग्रामपंचायतीत जमा करा. प्रमाणपत्र 7 दिवसांत दिले जाईल.",
+        fees:"21 दिवसांच्या आत मोफत, 21 दिवसांनंतर ₹50."
+      },
+      death: {
+        title:"मृत्यू प्रमाणपत्र",
+        desc:"एखाद्या व्यक्तीच्या मृत्यूचा पुरावा. पेन्शन, विमा यांसारख्या कायदेशीर व आर्थिक बाबींमध्ये वापर.",
+        docs:["मृत्यूचे वैद्यकीय प्रमाणपत्र", "मृत व्यक्तीचा आधार कार्ड", "अर्जदाराचा ओळखपत्र", "भरलेला अर्ज"],
+        process:"कागदपत्रे पंचायतमध्ये जमा करा. प्रमाणपत्र 5–10 दिवसांत दिले जाईल.",
+        fees:"₹50"
+      }
+    }
+  ];
+
+  function setLanguage(index) {
+    const langData = certificates[index];
+    // Birth
+    document.getElementById("birth-title").innerText = langData.birth.title;
+    document.getElementById("birth-desc").innerText = langData.birth.desc;
+    document.getElementById("birth-docs").innerText = langData.birth.docs.join(", ");
+    document.getElementById("birth-process").innerText = langData.birth.process;
+    document.getElementById("birth-fees").innerText = langData.birth.fees;
+
+    // Death
+    document.getElementById("death-title").innerText = langData.death.title;
+    document.getElementById("death-desc").innerText = langData.death.desc;
+    document.getElementById("death-docs").innerText = langData.death.docs.join(", ");
+    document.getElementById("death-process").innerText = langData.death.process;
+    document.getElementById("death-fees").innerText = langData.death.fees;
+  }
+
+  // Default English
+  setLanguage(0);
+</script>
+
+</body>
+</html>

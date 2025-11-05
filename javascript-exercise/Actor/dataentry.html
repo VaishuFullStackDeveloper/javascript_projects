@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    let studentData=[
+        {
+            name:"Vaishali",
+            user_Name:"vaishu@123"
+        },
+        {
+            name:"Minal",
+            user_Name:"minnu@dhamde"
+        },
+        {
+            name:"Sanku",
+            user_Name:"sanku@mine"
+        }
+    ]
+    let input=prompt()
+    let isNotFound=false
+    for (let i of studentData){
+       if(input==i.name){
+            console.log(i.user_Name)
+            isNotFound=false
+            break;
+        }else{
+          isNotFound=true;  
+        }
+    }if(isNotFound){
+        console.log("Not Found")
+    }
+  </script>  
+</body>
+</html>

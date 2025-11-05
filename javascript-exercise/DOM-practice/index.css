@@ -1,0 +1,14 @@
+.pr{
+    height: 100px;
+    width: 100px;
+    background-color: lightcoral;
+    border: 2px solid black;
+    text-align: center;
+    color: white;
+    gap: 20px;
+    margin: 8px;
+
+    
+
+}
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Days to Hours Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(to right, #83a4d4, #b6fbff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+input {
+  padding: 10px;
+  width: 80%;
+  border: 2px solid #00aaff;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #00aaff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #0077cc;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #444;
+}
+
+</style>
+<body>
+  <div class="container">
+    <h1>Days to Hours Converter</h1>
+    <input type="number" id="daysInput" placeholder="Enter number of days">
+    <button onclick="convertToHours()">Convert</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function convertToHours() {
+  const days = document.getElementById("daysInput").value;
+  const resultDiv = document.getElementById("result");
+
+  if (days === "" || isNaN(days) || days < 0) {
+    resultDiv.innerHTML = "Please enter a valid number of days.";
+    return;
+  }
+
+  const hours = days * 24;
+  resultDiv.innerHTML = `${days} day(s) = ${hours} hour(s)`;
+}
+
+  </script>
+</body>
+</html>
+ 

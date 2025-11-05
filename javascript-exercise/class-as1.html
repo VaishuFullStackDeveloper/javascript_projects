@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Write a program to print numbers from 1 to 20 using a do…while loop.
+      // let i = 1;
+      // do {
+      //   console.log(i);
+      //   i++;
+      // } while (i <= 20);
+
+      // Print the square of numbers from 1 to 10.
+      // let i = 1;
+      // do {
+      //   console.log("Number: " + i + ", Square: " + (i * i));
+      //   i++;
+      // } while (i <= 10);
+
+      // Use a do…while loop to print numbers in reverse order (from 10 to 1).
+      // let i=10;
+      // do{
+      //     console.log(i)
+      //     i--;
+      // }while(i>=1);
+
+      // Ask the user for numbers using prompt() and stop when the number entered is negative. Print the sum of all positive numbers.
+      // let sum = 0;
+      //       let num;
+      //       do {
+      //         num = Number(prompt("Enter a number:"));
+      //         if (num >= 0) {
+      //           sum += num;
+      //         }
+      //       } while (num >= 0);
+      //       alert("Sum of positive numbers: " + sum);
+
+      // Print the multiplication table of any number entered by the user.
+      // let num=Number(prompt("Enter a number:"));
+      // let i=1;
+      // do{
+      //     console.log((num*i));
+      //     i++;
+      // }while(i<=10);
+
+      // Find the factorial of a number using do…while.
+      // let num=(prompt("Enter a number"));
+      // let fact = 1;
+      // let i = 1;
+      // do {
+      //   fact = fact * i;
+      //   i++;
+      // } while (i <= num);
+      // console.log(fact);
+
+      // Count how many odd digits are in a number.
+      // let num =(prompt("Enter a number:"));
+      // let count = 0;
+      // do {
+      //   if (num % 10 % 2) count++;
+      //   num = Math.floor(num / 10);
+      // } while (num);
+      // console.log(count);
+
+      // Print the digits of a number in reverse order (e.g., 567 → 765).
+      // let num = 567;
+      // do {
+      //   console.log(num % 10);
+      //   num = Math.floor(num / 10);
+      // } while (num > 0);
+      // console.log(num);
+
+      // reverse the order
+      // let i = 765;
+      // do{
+      //   console.log(i);
+      //   i--;
+      // }while(i>=567)
+
+      // Keep asking the user for a password until they enter the correct one.
+      // let correctPassword = "1234";
+      // let input;
+
+      // do {
+      //   input = prompt("Enter password:");
+      // } while (input !== correctPassword);
+
+      // alert("Correct password entered!");
+
+      // Generate the first N terms of Fibonacci series.
+      //   let n =(prompt("Enter the number:"));
+      //   let a = 0,
+      //   b = 1,i = 1;
+      //  console.log("Fibonacci Series:");
+      //  do {
+      //     console.log(a);
+      //     let next = a + b;
+      //     a = b;
+      //     b = next;
+      //     i++;
+      //   } while (i <= n);
+
+      //  Write a program to check if a number is prime using a do…while loop.
+      // let num = 29;
+      // let i = 2;
+      // let isPrime = true;
+
+      // do {
+      //   if (num % i === 0) {
+      //     isPrime = false;
+      //     break;
+      //   }
+      //   i++;
+      // } while (i < num);
+
+      // if (num > 1 && isPrime) {
+      //   console.log(num + " is Prime");
+      // } else {
+      //   console.log(num + " is Not Prime");
+      // }
+
+      // Keep asking the user for numbers until they type “stop”, then print the largest number they entered.
+      // let largest = null;
+      // let input;
+
+      // do {
+      //   input = prompt("Enter a number (or type 'stop' to finish):");
+
+      //   if (input !== "stop") {
+      //     let num = Number(input);
+      //     if (largest === null || num > largest) {
+      //       largest = num;
+      //     }
+      //   }
+      // } while (input !== "stop");
+
+      // console.log("Largest number is:", largest);
+
+      // Calculate the power of a number (base^exponent) using do…while.
+      // let base = prompt("Enter the base number");
+      // let exponent = prompt("Enter the exponent");
+      // let result = 1;
+      // let i = 1;
+      //  do {
+      //   result = result * base;
+      //   i++;
+      // } while (i <= exponent);
+      // console.log(base + "^" + exponent + " = " + result);
+
+
+
+      // Use a do…while loop to display all the factors of a given number.
+
+      // let num = parseInt(prompt("Enter a number:"));
+      // let i = 1;
+      // console.log("Factors of " + num + " are:");
+      // do {
+      //   if (num % i === 0) {
+      //     console.log(i);
+      //   }
+      //   i++;
+      // } while (i <= num);
+
+      // let num=parseInt(prompt("Enter a number:"));
+      // let i=1;
+      // console.log("Factor of"+num+"are:");
+      // do{
+      //   if(num%i===0){
+      //     console.log(i);
+
+      //   }i++;
+      // }while(i<=num);
+
+      //       let num=prompt("Enter a number")    
+//       console.log(num)                                             
+//       for(i=0;i<num;i++){
+//       if(num%i===0){
+//       }
+//       }
+// console.log(i);
+
+ // Create a simple menu-driven calculator (Add, Subtract, Multiply, Divide, Exit) using do…while loop.
+//       let choice;
+//    do {
+//   choice = parseInt(prompt(
+//     "Menu:\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Exit\nEnter your choice (1-5):"
+//   ));
+// if (choice >= 1 && choice <= 4) {
+//     let num1 = parseFloat(prompt("Enter first number:"));
+//     let num2 = parseFloat(prompt("Enter second number:"));
+//     let result;
+//  if (choice === 1) {
+//       result = num1 + num2;
+//       alert("Result = " + result);
+//     } else if (choice === 2) {
+//       result = num1 - num2;
+//       alert("Result = " + result);
+//     } else if (choice === 3) {
+//       result = num1 * num2;
+//       alert("Result = " + result);
+//     } else if (choice === 4) {
+//       if (num2 === 0) {
+//         alert("Error: Cannot divide by zero!");
+//       } else {
+//         result = num1 / num2;
+//         alert("Result = " + result);
+//       }
+//     }
+//   } else if (choice !== 5) {
+//     alert("Invalid choice! Please select 1-5.");
+//   }
+// } while (choice !== 5);
+// alert("Calculator closed.");
+
+// Create a dictionary (object) of 5 fruits and their colors. Print all keys and values.
+    </script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <style>
+      /* Reset spacing and set full screen */
+      body {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", sans-serif;
+        background-color: rgb(83, 99, 183);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Container card */
+      .container {
+        width: 90%;
+        width: 400px;
+        background-color: rgb(7, 1, 54);
+        border-radius: 20px;
+        padding: 30px;
+      }
+
+      /* Heading */
+      h1 {
+        color: white;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      /* Label text */
+      p {
+        color: white;
+        font-size: 16px;
+        /* margin: 10px 0 5px 0; */
+      }
+
+      /* Input field */
+      input {
+        width: 100%;
+        height: 35px;
+        border-radius: 6px;
+        border: none;
+        padding-left: 10px;
+        font-size: 15px;
+      }
+
+      /* Forgot password */
+      .forgot {
+        text-align: right;
+        margin: 10px 0 20px;
+      }
+
+      .forgot a {
+        color: #ddd;
+
+        font-size: 14px;
+      }
+
+      /* Button */
+      button {
+        width: 100%;
+        height: 40px;
+        background-color: rgb(235, 152, 235);
+        color: white;
+        font-size: 16px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: rgb(208, 122, 208);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Login</h1>
+      <p>Username</p>
+      <input type="text" placeholder="Enter your username" />
+
+      <p>Password</p>
+      <input type="password" placeholder="Enter your password" />
+
+      <div class="forgot">
+        <a href="#">Forgot Password?</a>
+      </div>
+
+      <button>Sign In</button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schemes & Services - Gram Panchayat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .service-category {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .service-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            color: #667eea;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-item:hover {
+            padding-left: 10px;
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 8px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .service-item::before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .quick-links {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .quick-links h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .quick-link {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .quick-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, #764ba2, #667eea);
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .contact-info h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            padding: 15px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-category {
+                padding: 20px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏛️ Gram Panchayat Schemes & Services</h1>
+            <p>Empowering Rural Communities Through Quality Services</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon">🏗️</div>
+                    <div class="category-title">Infrastructure Development</div>
+                </div>
+                <ul class="service-list">
+                    <li class="service-item">Road Construction & Maintenance</li>
+                    <li class="service-item">Street Lighting Installation</li>
+                    <li class="service-item">Drainage System Development</li>
+                    <li class="service-item">Community Hall Construction</li>
+                    <li class="service-item">School Building Maintenance</li>
+                    <li class="service-item">Health Sub-Center Development</li>
+                    <li class="service-item">Water Supply Systems</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon">💰</div>
+                    <div class="category-title">Government Schemes</div>
+                </div>
+                <ul class="service-list">
+                    <li class="service-item">MGNREGA Employment Scheme</li>
+                    <li class="service-item">PM Awas Yojana (Housing)</li>
+                    <li class="service-item">Swachh Bharat Mission</li>
+                    <li class="service-item">PM Kisan Samman Nidhi</li>
+                    <li class="service-item">Pradhan Mantri Ujjwala Yojana</li>
+                    <li class="service-item">National Social Assistance Program</li>
+                    <li class="service-item">Ayushman Bharat Health Scheme</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon">📋</div>
+                    <div class="category-title">Certificate Services</div>
+                </div>
+                <ul class="service-list">
+                    <li class="service-item">Birth Certificate</li>
+                    <li class="service-item">Death Certificate</li>
+                    <li class="service-item">Income Certificate</li>
+                    <li class="service-item">Caste Certificate</li>
+                    <li class="service-item">Domicile Certificate</li>
+                    <li class="service-item">Character Certificate</li>
+                    <li class="service-item">Residence Certificate</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon">🌱</div>
+                    <div class="category-title">Agriculture & Environment</div>
+                </div>
+                <ul class="service-list">
+                    <li class="service-item">Soil Testing Services</li>
+                    <li class="service-item">Seed Distribution Program</li>
+                    <li class="service-item">Organic Farming Promotion</li>
+                    <li class="service-item">Tree Plantation Drives</li>
+                    <li class="service-item">Water Conservation Projects</li>
+                    <li class="service-item">Agricultural Training Programs</li>
+                    <li class="service-item">Livestock Development</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon">⚖️</div>
+                    <div class="category-title">Legal & Administrative</div>
+                </div>
+                <ul class="service-list">
+                    <li class="service-item">Property Tax Collection</li>
+                    <li class="service-item">Trade License Issuance</li>
+                    <li class="service-item">Building Permission</li>
+                    <li class="service-item">Legal Documentation</li>
+                    <li class="service-item">Dispute Resolution</li>
+                    <li class="service-item">Public Grievance Redressal</li>
+                    <li class="service-item">RTI Applications</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon">👥</div>
+                    <div class="category-title">Social Welfare</div>
+                </div>
+                <ul class="service-list">
+                    <li class="service-item">Widow Pension Scheme</li>
+                    <li class="service-item">Disability Pension</li>
+                    <li class="service-item">Old Age Pension</li>
+                    <li class="service-item">Women Empowerment Programs</li>
+                    <li class="service-item">Child Development Services</li>
+                    <li class="service-item">Healthcare Camps</li>
+                    <li class="service-item">Educational Support</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="quick-links">
+            <h2>🔗 Quick Links</h2>
+            <div class="links-grid">
+                <a href="#" class="quick-link">Online Application Portal</a>
+                <a href="#" class="quick-link">Application Status Check</a>
+                <a href="#" class="quick-link">Download Forms</a>
+                <a href="#" class="quick-link">Grievance Portal</a>
+                <a href="#" class="quick-link">Meeting Minutes</a>
+                <a href="#" class="quick-link">Budget & Accounts</a>
+                <a href="#" class="quick-link">Development Plans</a>
+                <a href="#" class="quick-link">Contact Directory</a>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <h2>📞 Contact Information</h2>
+            <p>For any queries or assistance regarding schemes and services, please contact us:</p>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <strong>📧 Email:</strong><br>
+                    info@grampanchayat.gov.in
+                </div>
+                <div class="contact-item">
+                    <strong>📱 Phone:</strong><br>
+                    +91 XXXXX XXXXX
+                </div>
+                <div class="contact-item">
+                    <strong>🏢 Office Hours:</strong><br>
+                    Mon-Fri: 10:00 AM - 5:00 PM
+                </div>
+                <div class="contact-item">
+                    <strong>📍 Address:</strong><br>
+                    Gram Panchayat Office<br>
+                    [Your Village Name]
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling and interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click events to service items
+            const serviceItems = document.querySelectorAll('.service-item');
+            serviceItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Add a subtle animation when clicked
+                    this.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+
+            // Add hover effects to service categories
+            const categories = document.querySelectorAll('.service-category');
+            categories.forEach(category => {
+                category.addEventListener('mouseenter', function() {
+                    this.style.borderLeft = '5px solid #667eea';
+                });
+                
+                category.addEventListener('mouseleave', function() {
+                    this.style.borderLeft = 'none';
+                });
+            });
+
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all service categories for animation
+            categories.forEach(category => {
+                observer.observe(category);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   .about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: var(--shadow-medium);
+  transition: transform 0.3s ease;
+}
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+.about-text h3 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.highlights {
+  list-style: none;
+  padding-left: 0;
+}
+.highlights li {
+  font-size: 1rem;
+  color: var(--dark-color);
+  margin-bottom: 0.6rem;
+}
+.highlights i {
+  color: var(--success-color);
+  margin-right: 0.5rem;
+}
+
+.mission-vision {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.mv-box {
+  background: var(--light-color);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: var(--shadow-light);
+  transition: all 0.3s ease;
+}
+.mv-box:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+}
+.mv-box h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+.mv-box i {
+  color: var(--accent-color);
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .about-grid, .mission-vision {
+    grid-template-columns: 1fr;
+  }
+}
+ 
+</style>
+<body>
+    <section id="about" class="section active">
+        <h2 class="section-title">About Our Village</h2>
+      
+        <div class="about-grid">
+          <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335" alt="Village View" />
+          </div>
+          <div class="about-text">
+            <h3>Welcome to Shri Ganesh Gram Panchayat</h3>
+            <p>
+              Shri Ganesh Gram Panchayat is a vibrant village located in the heart of Maharashtra. With a legacy of unity, agriculture, and development, we are committed to making our village smart, sustainable, and self-reliant.
+            </p>
+            <ul class="highlights">
+              <li><i class="fas fa-check-circle"></i> Strong community participation</li>
+              <li><i class="fas fa-check-circle"></i> Award-winning water conservation programs</li>
+              <li><i class="fas fa-check-circle"></i> 100% digital birth/death certificate system</li>
+              <li><i class="fas fa-check-circle"></i> Fully connected village with Wi-Fi</li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="mission-vision">
+          <div class="mv-box">
+            <h4><i class="fas fa-bullseye"></i> Our Mission</h4>
+            <p>To provide transparent governance, quality rural infrastructure, and empower every villager digitally and socially.</p>
+          </div>
+          <div class="mv-box">
+            <h4><i class="fas fa-eye"></i> Our Vision</h4>
+            <p>To be a model digital village recognized for innovation, inclusiveness, and sustainability across India.</p>
+          </div>
+        </div>
+      </section>
+      
+</body>
+</html>

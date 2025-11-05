@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>English Quest Challenge</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #fefefe;
+        color: #111;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background: #1e3a8a;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 24px;
+      }
+      main {
+        padding: 20px;
+        max-width: 600px;
+        margin: auto;
+      }
+      .question {
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+      input,
+      select,
+      button {
+        padding: 10px;
+        margin: 5px 0;
+        width: 100%;
+        font-size: 16px;
+      }
+      button {
+        background: #3b82f6;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #10b981;
+      }
+      .feedback {
+        margin-top: 10px;
+        font-weight: bold;
+      }
+      .correct {
+        color: green;
+      }
+      .wrong {
+        color: red;
+      }
+      footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <header>English Quest Challenge | Score: <span id="score">0</span></header>
+
+    <main>
+      <div id="gameSection">
+        <div class="question" id="question"></div>
+        <input type="text" id="answer" placeholder="Type your answer here" />
+        <button id="submitBtn">Submit</button>
+        <div class="feedback" id="feedback"></div>
+        <button id="nextBtn" style="display: none">Next</button>
+      </div>
+    </main>
+
+    <footer>English Quest Game | Learn & Speak</footer>
+
+    <script>
+      const sections = [
+        {
+          name: "Word Builder",
+          questions: [
+            {
+              word: "CAT",
+              meaning: "A small domesticated carnivorous mammal.",
+            },
+            {
+              word: "DOG",
+              meaning: "A domesticated carnivorous mammal that barks.",
+            },
+            {
+              word: "SUN",
+              meaning: "The star at the center of our solar system.",
+            },
+          ],
+        },
+        {
+          name: "Grammar Master",
+          questions: [
+            { question: "She ____ (go/goes) to school.", answer: "goes" },
+            { question: "I ____ (am/is) happy.", answer: "am" },
+            { question: "They ____ (play/plays) football.", answer: "play" },
+          ],
+        },
+        {
+          name: "Story Chain",
+          questions: [
+            { prompt: "Continue the story: Once upon a time, there was a..." },
+          ],
+        },
+        {
+          name: "Knowledge Boost",
+          questions: [
+            { question: "What is the capital of France?", answer: "Paris" },
+            { question: "How many days in a week?", answer: "7" },
+          ],
+        },
+      ];
+
+      let currentSection = 0;
+      let currentQuestion = 0;
+      let score = 0;
+
+      const questionEl = document.getElementById("question");
+      const answerEl = document.getElementById("answer");
+      const submitBtn = document.getElementById("submitBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const feedbackEl = document.getElementById("feedback");
+      const scoreEl = document.getElementById("score");
+
+      function showQuestion() {
+        answerEl.value = "";
+        feedbackEl.textContent = "";
+        nextBtn.style.display = "none";
+        const section = sections[currentSection];
+        const q = section.questions[currentQuestion];
+
+        if (section.name === "Word Builder") {
+          questionEl.innerHTML = `Form a word: <b>${q.word
+            .split("")
+            .sort(() => 0.5 - Math.random())
+            .join("")}</b>`;
+        } else if (
+          section.name === "Grammar Master" ||
+          section.name === "Knowledge Boost"
+        ) {
+          questionEl.textContent = q.question;
+        } else if (section.name === "Story Chain") {
+          questionEl.textContent = q.prompt;
+        }
+      }
+
+      function checkAnswer() {
+        const section = sections[currentSection];
+        const q = section.questions[currentQuestion];
+        let userAnswer = answerEl.value.trim();
+
+        if (section.name === "Word Builder") {
+          if (userAnswer.toUpperCase() === q.word) {
+            feedbackEl.textContent = `Correct! Meaning: ${q.meaning}`;
+            feedbackEl.className = "feedback correct";
+            score++;
+          } else {
+            feedbackEl.textContent = "Wrong! Try again.";
+            feedbackEl.className = "feedback wrong";
+          }
+        } else if (
+          section.name === "Grammar Master" ||
+          section.name === "Knowledge Boost"
+        ) {
+          if (userAnswer.toLowerCase() === q.answer.toLowerCase()) {
+            feedbackEl.textContent = "Correct!";
+            feedbackEl.className = "feedback correct";
+            score++;
+          } else {
+            feedbackEl.textContent = `Wrong! Correct answer: ${q.answer}`;
+            feedbackEl.className = "feedback wrong";
+          }
+        } else if (section.name === "Story Chain") {
+          feedbackEl.textContent = "Nice! Keep going.";
+          feedbackEl.className = "feedback correct";
+          score++;
+        }
+
+        scoreEl.textContent = score;
+        nextBtn.style.display = "block";
+        submitBtn.style.display = "none";
+      }
+
+      function nextQuestion() {
+        const section = sections[currentSection];
+        currentQuestion++;
+        if (currentQuestion >= section.questions.length) {
+          currentSection++;
+          currentQuestion = 0;
+          if (currentSection >= sections.length) {
+            questionEl.textContent = "🎉 Game Over! Your final score: " + score;
+            answerEl.style.display = "none";
+            submitBtn.style.display = "none";
+            nextBtn.style.display = "none";
+            return;
+          }
+        }
+        submitBtn.style.display = "block";
+        showQuestion();
+      }
+
+      submitBtn.addEventListener("click", checkAnswer);
+      nextBtn.addEventListener("click", nextQuestion);
+
+      // Initial load
+      showQuestion();
+    </script>
+  </body>
+</html>

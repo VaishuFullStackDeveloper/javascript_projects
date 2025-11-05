@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    /* .container{
+     width: 50vw;
+     height: 50vh;
+     background-color:lightpink; 
+     display: flex;
+     flex-direction: column;
+     text-align: center;
+     align-items: center;
+} */
+  </style>
+  <body>
+    <div class="container">
+      <h1>Check number</h1>
+      <!-- for check-number -->
+      <input type="number" placeholder="Enter the number" id="input-one" />
+      <button onclick="checkNumber()">Check</button>
+      <br />
+      <br />
+      <!-- for check-age -->
+      <input type="number" placeholder="Enter the age" id="input-two" />
+      <button onclick="checkAge()">Check</button>
+      <br />
+      <br />
+      <!-- for check-name -->
+      <input type="text" placeholder="Enter the name" id="input-three" />
+      <button onclick="checkName()">Check</button>
+      <br />
+      <br />
+      <!-- for check-year -->
+      <input type="text" placeholder="Enter the year" id="input-four" />
+      <button onclick="checkYear()">Check</button>
+      <br />
+      <br />
+      <!-- for check-user -->
+      <input type="text" placeholder="Enter the user" id="input-five" />
+      <button onclick="checkUser()">Check</button>
+      <br />
+      <br />
+      <!-- for check number or type -->
+      <input type="number" placeholder="Enter the number" id="input-six" />
+      <button onclick="checkType()">Check</button>
+      <br />
+      <br />
+      <input type="type" placeholder="Enter the type" id="input-seven" />
+      <button onclick="checkBoolean()">Check</button>
+    </div>
+
+    <script>
+      // for check number positive negative or zero..........
+      function checkNumber() {
+        let x = document.getElementById("input-one").value;
+        if (x > 0) {
+          alert("Number is positive");
+        } else if (x < 0) {
+          alert("Number is negative");
+        } else {
+          alert("Number is zero");
+        }
+      }
+
+      // for check student age
+      function checkAge() {
+        let age = document.getElementById("input-two").value;
+        if (age >= 13 && age <= 20) {
+          alert("High school student");
+        } else {
+          alert("Not a high school student");
+        }
+      }
+      //check wheather input is jonny
+      function checkName() {
+        const name = document.getElementById("input-three").value;
+        if (name == "jonny") {
+          alert("User is correct");
+        } else alert("User is incorrect");
+      }
+
+      // Check leap year
+      function checkYear() {
+        let year = document.getElementById("input-four").value;
+        if (year % 4 == 0 && year % 100 != 0) {
+          alert("This is leap year");
+        } else alert("This is not leap year");
+      }
+
+      // Enter admin or autheticate
+      function checkUser() {
+        let user = document.getElementById("input-five").value;
+        if (user == "Admin" && "Authenticate") {
+          alert("This is authenticate");
+        } else alert("Not authenticate");
+      }
+
+      //Function check number or type
+      function checkType() {
+        let x = document.getElementById("input-six").value;
+
+        // if (x === 0) {
+        //   alert("Number is zero");
+        // } else if (x > 0 && x % 2 === 0) {
+        //   alert("Positive and even");
+        // } else if (x > 0 && x % 2 !== 0) {
+        //   alert("Positive and odd");
+        // } else if (x < 0 && x % 2 === 0) {
+        //   alert("Negative and even");
+        // } else if (x < 0 && x % 2 !== 0) {
+        //   alert("Negative and odd");
+        // }
+
+        if (x == 0) {
+          alert("no is zero");
+        }
+        if (x > 0) {
+          if (x % 2 == 0) {
+            alert(" no is +ve and even");
+          } else {
+            alert(" no is +ve and odd");
+          }
+        }
+        if (x < 0) {
+          if (x % 2 == 0) {
+            alert(" no is -ve and even");
+          } else {
+            alert(" no is -ve and odd");
+          }
+        }
+      }
+
+      // function check boolean
+      function checkString(input) {
+        if (input == "true"||input==true) {
+          return "yes";
+        } else if (input == "false"||input==false) {
+          return "no";
+        } else {
+          return "null";
+      }
+    }
+      function checkBoolean() {
+        let num = document.getElementById("input-seven").value;
+
+        let result = checkString(num);
+        alert(result);
+      }
+    </script>
+  </body>
+</html>
+
+<script></script>

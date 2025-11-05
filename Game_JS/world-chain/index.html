@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guess the Word Game</title>
+  <link rel="stylesheet" href="./index.css" />
+</head>
+<body>
+  <!-- Start Page -->
+  <div class="page" id="startPage">
+    <h1>Guess the word</h1>
+    <button onclick="goToLevel()">Start</button>
+  </div>
+
+  <!-- Level Selection -->
+  <div class="page" id="levelPage">
+    <button class="back" onclick="goToStart()">←</button>
+    <h2>Level Selection</h2>
+    <div class="level-buttons">
+      <button onclick="startGame('beginner')">Beginner</button>
+      <button onclick="startGame('moderate')">Moderate</button>
+      <button onclick="startGame('advanced')">Advanced</button>
+    </div>
+  </div>
+
+  <!-- Game Page -->
+  <div class="page" id="gamePage">
+    <button class="back" onclick="goToLevel()">←</button>
+    <h3 id="levelTitle"></h3>
+    <div class="game-info">
+      <span id="timer">Time: 60s</span>
+      <span id="score">Score: 0</span>
+    </div>
+    <div class="word-box" id="scrambledWord"></div>
+    <input type="text" id="guessInput" placeholder="Enter your guess" />
+    <div class="game-btns">
+      <button onclick="checkGuess()">Check</button>
+      <button onclick="showHint()">Hint</button>
+    </div>
+    <p id="hintBox"></p>
+  </div>
+
+  <!-- Result Page -->
+  <div class="page" id="resultPage">
+    <h2>🎉 Congratulations! 🎉</h2>
+    <p>Your Score:</p>
+    <div class="circle" id="finalScore">0</div>
+    <div class="game-btns">
+      <button onclick="goToLevel()">Continue</button>
+      <button onclick="goToStart()">Exit</button>
+    </div>
+  </div>
+
+  <script src="./index.js"></script>
+</body>
+</html>

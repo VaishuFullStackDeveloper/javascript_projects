@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=>, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // add numbers
+      //    let a=7,
+      //    b="7"
+      //   document.write(a+b)
+
+      // swap element
+      // let a = 10, b = 20;
+      // let temp = a;
+      // a = b;
+      // b = temp;
+      // console.log(a, b);
+
+      // ans 11
+      // console.log(10 + true);
+
+      //   check even or odd
+      //   let num = 7;
+      //   if (num % 2 === 0) {
+      //     console.log("Even");
+      //   } else {
+      //     console.log("Odd");
+      //   }
+
+      //   largest of three numbers
+      //     let a = 10, b = 25, c = 15;
+      // let largest;
+      // if (a >= b && a >= c) {
+      //   largest = a;
+      // } else if (b >= a && b >= c) {
+      //   largest = b;
+      // } else {
+      //   largest = c;
+      // }
+      // console.log("Largest:", largest);
+
+      //   output for comparision
+      //     let a = 10;
+      // let b = "10";
+      // console.log(a == b, a === b);
+
+      //  simple interest
+      //     let p = 1000, r = 5, t = 2;
+      // let si = (p * r * t) / 100;
+      // console.log("Simple Interest:", si);
+
+      // null/undefine
+      // let x = null;
+      // let y;
+      // console.log(x, y);
+
+      // Celsius to Fahrenheit
+      //       let c = 37;
+      // let f = (c * 9/5) + 32;
+      // console.log(f); //ans 98.6
+
+      // Implicit type conversion
+      // console.log("5" * 2);   // 10 (string converted to number)
+      // console.log("5" + 2);   // "52" (number converted to string)
+
+      //  Reverse a string (without built-in reverse)
+      //   let str = "hello";
+      // let rev = "";
+      // for (let i = str.length - 1; i >= 0; i--) {
+      //   rev += str[i];
+      // }
+      // console.log(rev); // "olleh"
+
+      //  Output of string operations
+      //     console.log("5" - 2); // 3
+      // console.log("5" + 2); // "52"
+
+      // Area of a circle
+      // let r = 7;
+      // let area = Math.PI * r * r;
+      // console.log(area.toFixed(2)); // 153.94
+
+      //  random number
+      //     let random = Math.floor(Math.random() * 100) + 1;
+      // console.log(random);
+
+      //   leap year check
+      //     let year = 2024;
+      // if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+      //   console.log("Leap Year");
+      // } else {
+      //   console.log("Not Leap Year");
+      // }
+
+      //   Output of Boolean conversion
+      //     let a = 0;
+      // console.log(Boolean(a)); // false
+      // console.log(!!a);        // false
+
+      //   factorial
+      //     let n = 5;
+      // let fact = 1;
+      // for (let i = 1; i <= n; i++) {
+      //   fact *= i;
+      // }
+      // console.log(fact); // 120
+
+      // Count vowels in a string
+      // let str = "JavaScript";
+      // let count = 0;
+      // for (let char of str.toLowerCase()) {
+      //   if ("aeiou".includes(char)) {
+      //     count++;
+      //   }
+      // }
+      // console.log("Vowels:", count);
+
+      // Template literals
+      //       let name = "Vaishali";
+      // let age = 22;
+      // console.log(`My name is ${name} and I am ${age} years old.`);
+
+      //  Prime number check
+      //      let num = 17;
+      // let isPrime = true;
+      // for (let i = 2; i <= Math.sqrt(num); i++) {
+      //   if (num % i === 0) {
+      //     isPrime = false;
+      //     break;
+      //   }
+      // }
+      // console.log(isPrime ? "Prime" : "Not Prime");
+
+      // palindrome/Not Palindrome
+      //       let str = "madam";
+      // let rev = str.split("").reverse().join("");
+      // console.log(str === rev ? "Palindrome" : "Not Palindrome");
+
+      // let x=21;
+      // if (x % 2 ===0){
+      //   console.log("Even")
+      // }else{
+      //   console.log("Odd")
+      // }
+      
+//       let n = 7;
+// let a = 0, b = 1;
+// console.log(a, b);
+// for (let i = 2; i < n; i++) {
+//   let c = a + b;
+//   console.log(c);
+//   a = b;
+//   b = c;
+// }
+
+// let result = "";
+// for (let i = 1; i <= 122; i++) {
+//   result +=String.fromCharCode(i);
+// }
+// console.log(result);
+
+// let a=10,b=20,c=15;
+// let largest;
+// if(a>=b && a>=c){
+//   largest = a;
+// }else if (b>=a && b>=c){
+//  largest = b;
+// }else{
+//   largest=c;
+// }
+// console.log("Largest:",largest);
+
+
+// push array using for loop
+// let array = [2,4,6,8,9,25,24,12]; 
+// let array1 = [];
+// array[0] = [2,4];    
+// array[1] = [6,8];    
+// array[2] = [9,25];    
+// array[3] = [24,12];    
+// for (let i = 0; i < 4; i++) {
+//   array1.push(array[i]);
+// }
+// console.log(array1);
+
+// push array using while loop
+// let nums = [2,4,6,8,9,25,24,12];
+// let array = [];
+// let i = 0;
+// while (i < nums.length) {
+//   array.push([nums[i], nums[i+1]]);
+//   i += 2;
+// }
+// console.log(array);
+
+// using for loop 
+// let nums = [2, 4, 6, 8, 9, 25, 24, 12];
+// let array = [];
+// for (let i = 0; i < nums.length; i += 2) {
+//   array.push([nums[i], nums[i + 1]]);
+// }
+
+// console.log(array);
+
+//using for  loop
+// let array=[2,4,6,88,99,90,3,5,9,13,15];
+// let temparray=[];
+// for (let i=0;i<array.length; i++){
+//   if(i%2!=0){
+//     let a=array[i-1]
+//     let b=array[i]
+//     temparray.push([a,b])
+//   }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+// }
+// // if (array.length % 2 !== 0) {
+// //   temparray.push([array[array.length - 1], 0]);
+// // }
+// console.log(temparray);
+
+// sort alphabet
+// let str = ["b", "c", "a", "e", "g"];
+// str.sort();
+// console.log(str);
+
+// which is greater or smallar
+// let str1="Hello";
+// let str2="Vaishali";
+// console.log(str1<str2); 
+
+// 
+    </script>
+  </body>
+</html>

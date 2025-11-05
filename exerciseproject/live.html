@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shri Ganesh Gram Panchayat - Serving Our Community</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #ff9933, #ffffff, #138808);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: #ff9933;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .header-text h1 {
+            color: #138808;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .header-text p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .lang-switcher {
+            background: #138808;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lang-switcher:hover {
+            background: #0f6b06;
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        .nav {
+            background: #138808;
+            padding: 0;
+            margin-top: 90px;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-item {
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background: rgba(255,255,255,0.1);
+            border-bottom: 3px solid #ff9933;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Section Styles */
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(19,136,8,0.8), rgba(19,136,8,0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"><rect fill="%23228B22" width="800" height="400"/><circle fill="%23FFD700" cx="700" cy="100" r="60"/><polygon fill="%2332CD32" points="0,400 200,300 400,350 600,250 800,300 800,400"/><rect fill="%23654321" x="300" y="200" width="80" height="120"/><polygon fill="%23B22222" points="290,200 390,200 340,150"/></svg>');
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin: -20px -20px 40px -20px;
+            background-size: cover;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .motto {
+            background: rgba(255,153,51,0.9);
+            padding: 15px 30px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Marquee */
+        .marquee {
+            background: #ff9933;
+            color: white;
+            padding: 15px 0;
+            margin: 20px -20px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: scroll 20s linear infinite;
+            padding-left: 100%;
+        }
+
+        @keyframes scroll {
+            0% { transform: translate3d(100%, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        /* Quick Info Cards */
+        .quick-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .info-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .info-card i {
+            font-size: 40px;
+            color: #138808;
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            color: #138808;
+            margin-bottom: 10px;
+        }
+
+        /* Members Grid */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .member-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-photo {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #138808, #228B22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 60px;
+        }
+
+        .member-info {
+            padding: 20px;
+        }
+
+        .member-info h3 {
+            color: #138808;
+            margin-bottom: 10px;
+        }
+
+        .member-info p {
+            margin-bottom: 8px;
+        }
+
+        /* Schemes Table */
+        .schemes-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+
+        .schemes-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .schemes-table th {
+            background: #138808;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .schemes-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .schemes-table tr:hover {
+            background: #f9f9f9;
+        }
+
+        .apply-btn {
+            background: #ff9933;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .apply-btn:hover {
+            background: #e6830d;
+            transform: translateY(-2px);
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #138808, #ff9933);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+        }
+
+        .gallery-caption {
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Forms */
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #138808;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: #138808;
+        }
+
+        .submit-btn {
+            background: #138808;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #0f6b06;
+            transform: translateY(-2px);
+        }
+
+        /* Notice Board */
+        .notice-list {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .notice-item {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .notice-item:hover {
+            background: #f9f9f9;
+        }
+
+        .notice-item:last-child {
+            border-bottom: none;
+        }
+
+        .notice-title {
+            color: #138808;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .notice-date {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .download-btn {
+            background: #ff9933;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #e6830d;
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-item i {
+            font-size: 24px;
+            color: #138808;
+            margin-right: 15px;
+        }
+
+        .map-container {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #138808, #228B22);
+            color: white;
+            font-size: 18px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #ff9933;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #138808;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-content {
+                flex-direction: column;
+            }
+
+            .nav-item {
+                text-align: center;
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                margin-top: 120px;
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            color: #138808;
+            font-size: 36px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: #ff9933;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .search-bar {
+            max-width: 400px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: 2px solid #138808;
+            border-radius: 25px;
+            font-size: 16px;
+        }
+
+        .search-bar i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #138808;
+        }
+
+        .download-forms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .form-download-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .form-download-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .form-download-card i {
+            font-size: 40px;
+            color: #ff9933;
+            margin-bottom: 15px;
+        }
+
+        .track-complaint {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+
+        .track-complaint h3 {
+            color: #138808;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .track-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .track-input input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .track-btn {
+            background: #ff9933;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .track-btn:hover {
+            background: #e6830d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">
+                    <i class="fas fa-home"></i>                                                                     
+                </div>
+                <div class="header-text">
+                    <h1>श्री गणेश ग्राम पंचायत</h1>
+                    <p>Shri Ganesh Gram Panchayat</p>
+                </div>
+            </div>
+            <button class="lang-switcher" onclick="toggleLanguage()">
+                <i class="fas fa-globe"></i> हिंदी/English
+            </button>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#" class="nav-item active" onclick="showSection('home')">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="#" class="nav-item" onclick="showSection('about')">
+                <i class="fas fa-info-circle"></i> About Us
+            </a>
+            <a href="#" class="nav-item" onclick="showSection('members')">
+                <i class="fas fa-users"></i> Members
+            </a>
+            <a href="#" class="nav-item" onclick="showSection('schemes')">
+                <i class="fas fa-file-alt"></i> Schemes
+            </a>
+            <a href="#" class="nav-item" onclick="showSection('documents')">
+                <i class="fas fa-folder"></i> Documents
+            </a>
+            <a href="#" class="nav-item" onclick="showSection('gallery')">
+                <i class="fas fa-images"></i> Gallery
+            </a>
+            <a href="#" class="nav-item" onclick="showSection('notices')">
+                <i class="fas fa-bell"></i> Notices
+            </a>
+            <a href="#" class="nav-item" onclick="showSection('grievance')">
+                <i class="fas fa-comment-alt"></i> Grievance
+            </a>
+            <a href="#" class="nav-item" onclick="showSection('contact')">
+                <i class="fas fa-phone"></i> Contact
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <h2>Welcome to Shri Ganesh Gram Panchayat</h2>
+                <p>Committed to Rural Development & Community Welfare</p>
+                <div class="motto">सबका साथ, सबका विकास, सबका विश्वास</div>
+            </div>
+
+            <div class="marquee">
+                <div class="marquee-content">
+                    📢 Next Gram Sabha Meeting on July 15, 2025 at 10:00 AM in Community Hall | New Road Construction Project Started | Water Supply Improvement Work in Progress | Apply for PM Awas Yojana - Last Date: August 31, 2025 📢
+                </div>
+            </div>
+
+            <div class="quick-info">
+                <div class="info-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Total Population</h3>
+                    <p><strong>12,450</strong><br>Families: 2,890</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-map"></i>
+                    <h3>Total Area</h3>
+                    <p><strong>45.6 sq km</strong><br>Villages: 8</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Emergency Helpline</h3>
+                    <p><strong>1800-XXX-XXXX</strong><br>24/7 Available</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Awards Won</h3>
+                    <p><strong>Swachh Bharat</strong><br>Best Panchayat 2024</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 class="section-title">About Our Panchayat</h2>
+            
+            <div class="quick-info">
+                <div class="info-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Established</h3>
+                    <p>Founded in <strong>1975</strong><br>50 Years of Service</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Coverage Area</h3>
+                    <p><strong>8 Villages</strong><br>45.6 Square Kilometers</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Our Mission</h3>
+                    <p><strong>Rural Development</strong><br>Transparency & Progress</p>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <h3 style="color: #138808; margin-bottom: 20px;"><i class="fas fa-history"></i> Our History</h3>
+                <p>Shri Ganesh Gram Panchayat was established in 1975 with the vision of promoting rural development and ensuring transparent governance. Over the past 50 years, we have transformed from a small rural settlement to a model panchayat, setting examples in rural development, education, and community welfare.</p>
+                
+                <h3 style="color: #138808; margin: 30px 0 20px 0;"><i class="fas fa-eye"></i> Our Vision</h3>
+                <p>To create a self-reliant, prosperous, and sustainable rural community where every citizen has access to basic amenities, employment opportunities, and quality education while preserving our cultural heritage.</p>
+                
+                <h3 style="color: #138808; margin: 30px 0 20px 0;"><i class="fas fa-bullseye"></i> Our Objectives</h3>
+                <ul style="padding-left: 20px; line-height: 2;">
+                    <li>Ensure 100% coverage of basic amenities like water, electricity, and sanitation</li>
+                    <li>Promote sustainable agriculture and rural employment</li>
+                    <li>Maintain transparency in governance and decision-making</li>
+                    <li>Foster education and skill development programs</li>
+                    <li>Preserve and promote local culture and traditions</li>
+                </ul>
+
+                <h3 style="color: #138808; margin: 30px 0 20px 0;"><i class="fas fa-trophy"></i> Major Achievements</h3>
+                <ul style="padding-left: 20px; line-height: 2;">
+                    <li>🏆 Swachh Bharat Abhiyan - Best Panchayat Award 2024</li>
+                    <li>⚡ 100% Rural Electrification achieved in 2022</li>
+                    <li>💧 Clean Water Supply to all households</li>
+                    <li>🏫 Construction of 3 new school buildings</li>
+                    <li>🛣️ 25 km of concrete roads constructed</li>
+                    <li>🌳 Planted over 10,000 trees in the last 5 years</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Members Section -->
+        <section id="members" class="section">
+            <h2 class="section-title">Panchayat Members & Staff</h2>
+            
+            <div class="members-grid">
+                <div class="member-card">
+                    <div class="member-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3>श्रीमती आशा देवी</h3>
+                        <p><strong>Position:</strong> Sarpanch (President)</p>
+                        <p><strong>Contact:</strong> +91 98765-43210</p>
+                        <p><strong>Education:</strong> M.A., B.Ed</p>
+                        <p><strong>Experience:</strong> 8 years in public service</p>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3>श्री राम प्रसाद शर्मा</h3>
+                        <p><strong>Position:</strong> Deputy Sarpanch</p>
+                        <p><strong>Contact:</strong> +91 98765-43211</p>
+                        <p><strong>Ward:</strong> Ward No. 1</p>
+                        <p><strong>Experience:</strong> 5 years</p>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-photo">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3>श्रीमती सुनीता पाटिल</h3>
+                        <p><strong>Position:</strong> Ward Member</p>
+                        <p><strong>Contact:</strong> +91 98765-43212</p>
+                        <p><strong>Ward:</strong> Ward No. 2</p>
+                        <p><strong>Focus:</strong> Women & Child Development</p>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3>श्री विकास कुमार</h3>
+                        <p><strong>Position:</strong> Ward Member</p>
+                        <p><strong>Contact:</strong> +91 98765-43213</p>
+                        <p><strong>Ward:</strong> Ward No. 3</p>
+                        <p><strong>Focus:</strong> Infrastructure Development</p>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-photo">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3>श्री अनिल कुमार</h3>
+                        <p><strong>Position:</strong> Panchayat Secretary</p>
+                        <p><strong>Contact:</strong> +91 98765-43214</p>
+                        <p><strong>Email:</strong> secretary@ganeshpanchayat.in</p>
+                        <p><strong>Office Hours:</strong> 9 AM - 5 PM</p>
+                    </div>
+                </div

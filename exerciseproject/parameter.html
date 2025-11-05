@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parameter</title>
+  </head>
+
+  <body>
+    <p id="result"></p>
+    <script>
+      // For sum
+      function sum(a, b) {
+        console.log("Sum:", a + b);
+        return a + b;
+      }
+      // For difference
+      function diff(a, b) {
+        console.log("Difference:", a - b);
+        return a - b;
+      }
+      // for multiplication
+      function product(a, b) {
+        console.log("Product:", a * b);
+        return a * b;
+      }
+      // For division
+      function division(a, b) {
+        console.log("Division:", a / b);
+        return a / b;
+      }
+      // Function Calculator
+      function calculator() {
+        let add = sum(10,20);
+        let sub = diff(20,30);
+        let multi= product(10,40);
+        let div = division(20,30);
+        return add
+    
+      }
+
+      let result = calculator();
+      console.log("result:", result);
+      document.getElementById("result").innerHTML = result;
+    </script>
+  </body>
+</html>
+
+<!-- // for Addition
+// function sum (a,b){
+//     return a+b;
+// }
+// let addOne =sum(10,20);
+// console.log(addOne);
+
+// let addTwo =sum(30,40);
+// console.log(addTwo);
+
+// For Subtraction
+
+// function diff(num1,num2){
+//     return num1+num2;
+// }
+// let addOne = diff(10,20);
+// console.log(addOne);
+
+// let subTwo = diff(30,50);
+// console.log(subTwo); -->

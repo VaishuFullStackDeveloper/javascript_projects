@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    
+    <script>
+      const array = [
+        { question: "2+2=?",
+         option_one: 2, 
+         option_two: 4, 
+         ans: 4 },
+
+        { question: "4+4=?",
+         option_one: 8,
+          option_two: 16,
+           ans: 8 },
+      ];
+
+      for (let i = 0; i < array.length; i++) {
+        let userAns = Number(
+          prompt(
+            array[i].question +
+              "\nOption:\n" +
+              array[i].option_one +
+              "\n" +
+              array[i].option_two +
+              ""
+          )
+        );
+
+        if (userAns === array[i].ans) {
+          alert("Correct");
+        } else {
+          alert("Incorrect");
+        }
+      }
+    </script>
+  </body>
+</html>

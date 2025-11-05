@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number checker</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Positive or Negative Checker</h1>
+    </div>
+    <script>
+      let number = Number(prompt("Enter a number:"));
+      let result = " ";
+      if (number !== 0) {
+        if (number > 0) {
+          result = "Number is positive";
+        } else {
+          result = "Number is negative";
+        }
+      } else {
+        result = "Number is nutral";
+      }
+      alert(result);
+      console.log(result);
+    </script>
+  </body>
+</html>

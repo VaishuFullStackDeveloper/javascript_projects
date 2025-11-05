@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Famous Actors Movies</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background: #7d5c65;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .search-bar {
+        text-align: center;
+        margin: 15px 0;
+      }
+
+      .search-bar input {
+        padding: 8px;
+        width: 250px;
+      }
+
+      .search-bar button {
+        padding: 8px 12px;
+        background: #7d5c65;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .actor-card {
+        display: flex;
+        background: #d0c5c5;
+        margin: 20px auto;
+        padding: 15px;
+        width: 90%;
+        border-radius: 8px;
+      }
+
+      .actor-info {
+        width: 200px;
+        text-align: center;
+        margin-right: 20px;
+      }
+
+      .actor-info img {
+        width: 150px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .movies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        flex: 1;
+      }
+
+      .movie-card {
+        background: #eee;
+        padding: 10px;
+        border-radius: 8px;
+        text-align: center;
+        width: 150px;
+      }
+
+      .movie-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .movie-card p {
+        margin: 8px 0 0;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Famous Actors Movies</header>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search..." />
+      <button>Search</button>
+    </div>
+
+    <div id="display"></div>
+
+    <script src="./actordata.js"></script>
+    <script>
+// show actor image and movies
+      let display = document.getElementById("display");
+
+      for (let i = 0; i < newData.length; i++) {
+        let actor = newData[i];
+
+        let d = `
+        <div class="actor-card">
+          <div class="actor-info">
+            <img src="${
+              actor.image || "https://via.placeholder.com/150"
+            }" alt="${actor.name}">
+            <h3>${actor.name}</h3>
+          </div>
+          <div class="movies">
+      `;
+
+        for (let movie of actor.movies) {
+          d += `
+          <div class="movie-card">
+            <img src="${
+              movie.image || "https://via.placeholder.com/150"
+            }" alt="${movie.Name}">
+            <p>${movie.Name}</p>
+          </div>
+        `;
+        }
+
+        d += `</div></div>`;
+
+        display.innerHTML += d;
+      }
+
+for (let i = 0; i < newData.length; i++) {
+  let actor = newData[i];
+  let movieCount = actor.movies.length;
+
+  console.log(`${actor.name} ${movieCount} movies`);
+}
+ 
+let actorName = "";
+let movieCount = 0;
+for (let actor of newData) {
+  if (actor.movies.length > movieCount) {
+    movieCount = actor.movies.length;
+    actorName = actor.name;
+  }
+}
+console.log(`${actorName} → ${movieCount} movies`);
+
+
+
+for (let actor of newData) {
+  if (actor.IMDB_rating >= 6) {
+    console.log(`${actor.name} → IMDB: ${actor.IMDB_rating}`);
+  }
+}
+
+    </script>
+  </body>
+</html>
+
+

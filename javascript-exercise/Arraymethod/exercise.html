@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// array.length example
+// // Example 1
+// let arr1 = [1, 2, 3];
+// console.log(arr1.length); // 3
+
+// // Example 2
+// let arr2 = [];
+// console.log(arr2.length); // 0
+
+// // Example 3
+// let arr3 = ["a", "b", "c", "d", "e"];
+// console.log(arr3.length); // 5
+
+// // Example 4
+// let arr4 = [10, 20];
+// arr4[5] = 50; // sparse array
+// console.log(arr4.length); // 6
+
+// // Example 5
+// let arr5 = Array(7); 
+// console.log(arr5.length); // 7
+ 
+// // 1
+// let arr1=[1,2,3];
+// console.log(arr1.length);
+// // 2
+// let arr2=[];
+// console.log(arr2.length);
+// // 3
+// let arr3=["a","b","c","d","e"];
+// console.log(arr3.length);
+// // 4
+// let arr4=[10,20];
+// arr4[5]=50;
+// console.log(arr4.length);
+// // 5
+// let arr5=Array(7);
+// console.log(arr5.length)
+
+// array.toString() example
+// // Example 1
+// let arr1 = [1, 2, 3];
+// console.log(arr1.toString()); // "1,2,3"
+
+// // Example 2
+// let arr2 = ["apple", "banana"];
+// console.log(arr2.toString()); // "apple,banana"
+
+// // Example 3
+// let arr3 = [];
+// console.log(arr3.toString()); // ""
+
+// // Example 4
+// let arr4 = [true, false, null];
+// console.log(arr4.toString()); // "true,false,"
+
+// // Example 5
+// let arr5 = [1, [2, 3], 4];
+// console.log(arr5.toString()); // "1,2,3,4"
+
+// // Example 1
+// let arr1 = [10, 20, 30];
+// console.log(arr1.at(0));  // 10
+
+// // Example 2
+// console.log(arr1.at(2));  // 30
+
+// // Example 3
+// console.log(arr1.at(-1)); // 30
+
+// // Example 4
+// console.log(arr1.at(-2)); // 20
+
+// // Example 5
+// let arr2 = ["a", "b", "c", "d"];
+// console.log(arr2.at(3));  // "d"
+
+// // 1
+// let arr1=[10,20,30];
+// console.log(arr1.at(2))
+// // 2
+// let arr2=["a","b","c","5"]
+// console.log(arr2.at(3))
+
+// array.join example
+// Example 1
+// let arr1 = ["a", "b", "c"];
+// console.log(arr1.join()); // "a,b,c"
+
+// // Example 2
+// console.log(arr1.join("-")); // "a-b-c"
+
+// // Example 3
+// console.log(arr1.join("")); // "abc"
+
+//  Example 4
+// let arr2 = [1, 2, 3, 4];
+// console.log(arr2.join(" | ")); // "1 | 2 | 3 | 4"
+
+// // Example 5
+// let arr3 = [];
+// console.log(arr3.join(",")); // ""
+
+//  1
+// let arr1=["a","b","c","d","e","f"]
+// console.log(arr1.join());
+// console.log(arr1.join("-"))
+// console.log(arr1.join("|"))
+// console.log(arr1.join("*"))
+
+// Example of push
+// Example 1
+// let arr1 = [1, 2, 3];
+// console.log(arr1.pop()); // 3
+// console.log(arr1);       // [1,2]
+
+//  Example 2
+// let arr2 = ["apple", "banana"];
+// console.log(arr2.pop()); // "banana"
+// console.log(arr2);       // ["apple"]
+
+//  Example 3
+// let arr3 = [];
+// console.log(arr3.pop()); // undefined
+
+//  Example 4
+// let arr4 = [true, false];
+// console.log(arr4.pop()); // false
+// console.log(arr4);       // [true]
+
+//  Example 5
+// let arr5 = [10];
+// console.log(arr5.pop()); // 10
+// console.log(arr5);       // []
+
+// 1
+// let arr1=[1,2,3,4];
+// console.log(arr1.pop());
+// console.log(arr1);
+
+// Exaple of push
+//  Example 1: Push multiple elements at once
+// let arr1 = [1, 2];
+// arr1.push(3, 4, 5);
+// console.log(arr1); // [1,2,3,4,5]
+
+// // Example 2: Push elements dynamically using loop
+// let arr2 = [];
+// for(let i=1; i<=5; i++){
+//   arr2.push(i*2);
+// }
+// console.log(arr2); // [2,4,6,8,10]
+
+// // Example 3: Push arrays into an array (nested array)
+// let arr3 = [1, 2];
+// let arr4 = [3, 4];
+// arr3.push(arr4);
+// console.log(arr3); // [1,2,[3,4]]
+
+// // Example 4: Push elements conditionally
+// let numbers = [1, 2, 3];
+// let value = 4;
+// if(value % 2 === 0) numbers.push(value);
+// console.log(numbers); // [1,2,3,4]
+
+// // Example 5: Push using spread operator to flatten
+// let arr5 = [1, 2];
+// let newArr = [3, 4];
+// arr5.push(...newArr);
+// console.log(arr5); // [1,2,3,4]
+
+// // 1
+// let arr1=[1,2,3]
+// arr1.push(4,5,6);
+// console.log(arr1);
+
+// // 2
+// let arr2=[];
+// for(let i=1;i<=5;i++){
+//     arr2.push(i*2);
+// }
+// console.log(arr2);
+// // 3
+// let arr3=[1,2];
+// let arr4=[3,4];
+// arr3.push(arr4);
+// console.log(arr3);
+// // 4
+// let numbers=[1,2,3];
+// let value=prompt("enter the value");
+// if (value%2===0)numbers.push(value);
+// console.log(numbers);
+// 5
+// let arr5=[1,2];
+// let newArr=[4,5,6];
+// arr5.push(...newArr);
+// console.log(arr5);
+
+// exaple of shift
+// // Example 1: Shift multiple times in a loop
+// let arr1 = ["a","b","c","d"];
+// while(arr1.length > 0){
+//     console.log(arr1.shift());
+// }
+// // Output: "a", "b", "c", "d"
+
+// // Example 2: Shift with storing removed element
+// let arr2 = [10,20,30];
+// let first = arr2.shift();
+// console.log(first); // 10
+// console.log(arr2);  // [20,30]
+
+// // Example 3: Shift from mixed data array
+// let arr3 = [true, "hello", 50];
+// console.log(arr3.shift()); // true
+// console.log(arr3);          // ["hello",50]
+
+// // Example 4: Using shift with recursion
+// let arr4 = [1,2,3];
+// function recursiveShift(a){
+//     if(a.length === 0) return;
+//     console.log(a.shift());
+//     recursiveShift(a);
+// }
+// recursiveShift(arr4); // 1 2 3
+
+// // Example 5: Shift from nested arrays
+// let arr5 = [[1,2],[3,4],[5,6]];
+// console.log(arr5.shift()); // [1,2]
+// console.log(arr5);         // [[3,4],[5,6]]
+
+// // 1
+// let arr1=["a","b","c",'d'];
+// while(arr1.length>0){
+//     console.log(arr1.shift());
+// }
+// // 2
+// let arr2=[10,20,30];
+// let first=arr2.shift();
+// console.log(first);
+// console.log(arr2);
+// // 3
+// let arr5=[[1,2],[3,4],[5,6]];
+// console.log(arr5.shift());
+// console.log(arr5);
+
+// Exaple of Unshift
+// // Example 1: Add multiple elements at once
+// let arr1 = [3,4];
+// arr1.unshift(1,2);
+// console.log(arr1); // [1,2,3,4]
+
+// // Example 2: Prepend dynamically using loop
+// let arr2 = [5,6];
+// for(let i=4; i>=1; i--){
+//     arr2.unshift(i);
+// }
+// console.log(arr2); // [1,2,3,4,5,6]
+
+// // Example 3: Add array elements using spread
+// let arr3 = [5,6];
+// let newArr = [1,2,3,4];
+// arr3.unshift(...newArr);
+// console.log(arr3); // [1,2,3,4,5,6]
+
+// // Example 4: Conditional unshift
+// let arr4 = [3,4];
+// let val = 2;
+// if(val < arr4[0]) arr4.unshift(val);
+// console.log(arr4); // [2,3,4]
+
+// // Example 5: Unshift objects
+// let users = [{name:"John"}, {name:"Jane"}];
+// users.unshift({name:"Mike"});
+// console.log(users);
+// // [{name:"Mike"}, {name:"John"}, {name:"Jane"}]
+
+// 1
+let arr1=[3,4];
+arr1.unshift(5,6)
+</script>    
+</body>
+</html>

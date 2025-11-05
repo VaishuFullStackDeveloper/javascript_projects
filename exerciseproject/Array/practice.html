@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // access array
+      //  let arr=[10,20,30,40,50];
+      //  console.log(arr[0])
+      //  console.log(arr[1])
+      //  console.log(arr.length)
+      //  arr[4]=100;
+      //  console.log(arr)
+      //  console.log(arr[arr.length-1])
+
+      // Add/Remove
+      // let fruits = ["apple","banana"];
+      // fruits.push("mango");
+      // console.log(fruits);
+      // fruits.pop();
+      // console.log(fruits);
+      // fruits.unshift("grape");
+      // console.log (fruits)
+      // fruits.shift();
+      // console.log(fruits)
+      // console.log(fruits.length);
+
+      // searching
+      // let colors = ["red","green","blue","yellow"];
+      // console.log(colors.indexOf("green"));
+      // console.log(colors.indexOf("yellow"));
+      // console.log(colors.includes("blue"));
+      // console.log(colors.includes("pink"));
+      // console.log(colors.lastIndexOf("green"))
+
+      // Slice & Splice
+      // let nums =[1,2,3,4,5];
+      // console.log(nums.slice(1,4));
+      // nums.splice(1,2,10);
+      // console.log(nums);
+      // nums.splice(1,2,10,20);
+      // console.log(nums);
+      // let part= nums.slice(0,2)
+      // console.log(part);
+      // console.log (nums);
+
+      // Iteration
+      // let items = ["pen","book","pencil","eraser","bag"];
+      // for (let i=0; i< items.length;i++)
+      // console.log(items[i]);
+      // for (let item of items)
+      // console.log(item);
+      // items.forEach((it,i)=>console.log(i,it))
+
+    // map, filter, reduce, find, sort
+// let numbers =[5,2,9,1,7];
+// let doubled = numbers.map((n) =>n*4)
+// console.log(doubled);
+
+// let evens = numbers.filter((n)=>n%2===0)
+// console.log(evens);
+
+// let total = numbers.reduce((sum,n)=>sum + n,0);
+// console.log(total);
+
+// console.log(numbers.find((n)=>n>2));
+// console.log(numbers.findIndex((n)=>n>2));
+
+// numbers.sort((a,b)=>a-b);
+// console.log(numbers);
+
+
+// // 1. Multiply each number by 2
+// let nums1 = [1, 2, 3, 4];
+// let multiply = nums1.map((n)=>n*2)
+// console.log(multiply);
+
+// // 2. Convert each word to uppercase
+// let words1 = ["apple", "banana", "grape"];
+// let word= words1.map(w=>w.toUpperCase());
+// console.log(word)
+
+// // 3. Get lengths of each string
+// let words2 = ["hi", "hello", "welcome"];
+// let string = words1.map(n=>n.length)
+// console.log(string)
+
+
+// // 4. Add 10 to each element
+// let nums2 = [5, 10, 15, 20];
+// let add = nums2.map((n)=>n+10)
+// console.log(add);
+
+
+// // 5. Convert array of objects → get names
+// let people1 = [{name:"A"}, {name:"B"}, {name:"C"}];
+// [{name:"A"}, {name:"B"}, {name:"C"}].map(p => p.name);  
+// console.log(people1)
+
+
+// 1. Keep only even numbers
+let nums3 = [1, 2, 3, 4, 5, 6];
+let evens = nums3.filter((n)=>n%2===0)
+console.log(evens);
+
+// 2. Keep words longer than 4 letters
+let words3 = ["cat", "lion", "tiger", "goat"];
+
+// 3. Keep numbers > 50
+let nums4 = [10, 60, 80, 30, 100];
+
+// 4. Keep positive numbers
+let nums5 = [-5, -2, 0, 3, 8];
+
+// 5. From array of objects, keep only adults (age >= 18)
+let people2 = [{name:"A", age:15}, {name:"B", age:22}, {name:"C", age:30}];
+
+
+    </script>
+  </body>
+</html>
